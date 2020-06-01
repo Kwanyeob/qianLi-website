@@ -1,0 +1,104 @@
+<nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-center">
+    <div class="navbar-brand d-flex w-50 mr-auto">
+    <a href='?page=home'>
+        <img src="resources/nav-brand.png" alt="QianLi" class="nav-logo">
+    </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="navbar-nav w-100 justify-content-center">
+                <li class="nav-item">
+                        <a class="nav-link" href="?page=stencils" {% if product_list %} onmouseover="display('stencilsNav')" {% endif %}>Stencils</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="?page=product&name=iThor">iThor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=product&name=iCopy">iCopy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=product&name=PCB">PCB Cam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=prying_tools" {% if product_list %} onmouseover="display('pryingNav')" {% endif %}>Prying tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=removers" {% if product_list %} onmouseover="display('removerNav')" {% endif %} >Removers</a>
+                    </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+                    <a class="nav-link" href="?page=allproducts">All products</a>
+             </li>
+             <li class="nav-item">
+                     <a class="nav-link" href="?page=downloads">Downloads</a>
+             </li>
+        </ul>
+    </div>
+</nav>
+{% if product_list %}
+<nav class="navbar navbar-expand-md justify-content-center navprod" id="stencilsNav" style='display: none'>
+    <div class="card-deck">
+    {% for product in categories9Nav[0].items %}
+        <div class="card navitem">
+            <div class="card-body">
+               <p class="card-title">{{product.name}}</p>
+               <img src="resources/products/{{product.picture}}" alt="..." width="100">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</nav>
+<nav class="navbar navbar-expand-md justify-content-center navprod" id="pryingNav" style='display: none'>
+    <div class="card-deck">
+    {% for product in categories9Nav[5].items %}
+        <div class="card navitem">
+            <div class="card-body">
+               <p class="card-title">{{product.name}}</p>
+               <img src="resources/products/{{product.picture}}" alt="..." width="100">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</nav>
+<nav class="navbar navbar-expand-md justify-content-center navprod" id="removerNav" style='display: none'>
+    <div class="card-deck">
+    {% for product in categories9Nav[1].items %}
+        <div class="card navitem">
+            <div class="card-body">
+               <p class="card-title">{{product.name}}</p>
+               <img src="resources/products/bumblebee/{{product.picture}}" alt="..." width="100">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</nav>
+
+<script>
+var displayingNav;
+
+function isHover(e) {
+    return (e.parentElement.querySelector(':hover') === e);
+}
+
+function hide(id){
+    var obj = document.getElementById(id);
+    obj.style.display = "none";
+}
+
+function display(id){
+    var obj = document.getElementById(id);
+    if(typeof displayingNav !== 'undefined'){
+        hide(displayingNav);
+    }
+   
+    displayingNav = id;
+    obj.style.display = "flex";
+}
+
+
+
+</script>
+{% endif %}
