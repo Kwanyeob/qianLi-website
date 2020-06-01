@@ -1,0 +1,7 @@
+.masthead{
+    height: 50vh;
+    background-image: url('../resources/distributorimages/distributors_banner.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}

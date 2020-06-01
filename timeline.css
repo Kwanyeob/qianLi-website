@@ -1,0 +1,83 @@
+.jumbotron{
+    background: transparent;
+    
+}
+
+main{
+    background-image: url('../resources/blossom_bg-bottom.jpg');
+    background-size:contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+
+.masthead {
+    height: 50vh;
+    background-image: url('../resources/about-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+.container-about{
+    max-width: 860px !important;
+}
+
+
+.head{
+    text-align:center;
+    margin-bottom: 25px;
+}
+
+.card-text{
+    text-align:center;
+}
+
+.employeeCard{
+    border-style: none;
+    font-weight: 350;
+}
+
+.employeePic{
+    border-radius: 6em;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    object-fit: cover;
+    box-shadow: lightgray 0px 2px 4px;
+}
+
+hr{
+    width: 768px;
+}
