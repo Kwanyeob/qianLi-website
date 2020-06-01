@@ -1,0 +1,457 @@
+
+.btn-primary{
+  background-color : #a22324 !important;
+  border-color: #343A40 !important;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.navprod{
+  position: absolute;
+  width: 100vw;
+  background: rgba(0,0,0,0.2);
+}
+
+.navitem{
+  transition: all .2s;
+}
+
+.navitem:hover{
+  transform: scale(1.1);
+}
+
+.navbar{
+  z-index: 1000;
+}
+
+.nav-logo{
+  height: 28px;
+  width: auto;
+}
+
+ .flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }
+
+    
+.footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+      text-align: center;
+  }
+  
+
+}
+
+  .icon-txt{
+      text-align: center;
+      font-size: 3rem;
+  }
+
+  .card-title {
+      text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  } 
+
+  .body-title{
+      text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin-bottom: 20px;
+  }
+
+  .jumbotron {
+      background-color: white;
+
+  }
+
+  .card-image-top {
+      font-size: 10px;
+
+  }
+  #containerContact {
+    margin-top: 30px;
+  }
+
+  #imageMail {
+
+      width:100px;
+      border:none;
+  }
+
+  #imageqr{
+      width: 200px;
+      border: none;
+
+  }
+
+  #buttonArrow {
+      color:black;
+      background-color: transparent;
+      border: none;
+      
+
+
+  }
+
+.boxi{
+  border-radius: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 1.25rem;
+  box-shadow: grey 0px 2px 6px;
+}
+
+  #arrow {
+      width:100%;
+    
+
+  }
+  .Insticons{
+    color: palevioletred;
+  }
+
+  /* CAROUSEL = IMAGE SLIDING */
+
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 3rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  .carousel-caption > h1{
+    font-size: 2.5em;
+    font-weight: 400;
+  }
+
+  .carousel-caption > p{
+    font-size: 1.5em;
+    font-weight: 300;
+  }
+
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 32rem;
+  }
+  .carousel-item{
+    background-color: #282d32;
+  }
+
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+
+  }
+
+  /*
+  * Dummy devices (replace them with your own or something else entirely!)
+  */
+
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+
+
+ .product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+  /* INDEX BOXES FOR PRODUCTS */
+
+  .cell{
+    background-color: whitesmoke;
+    border: 2px whitesmoke solid;
+    background-size: cover;
+    padding: 1.25em;
+    text-align: left;
+    display: block;
+    overflow: hidden;
+    font-weight: lighter;
+  }
+
+  .cell:hover{
+    z-index: 999;
+    border: 2px whitesmoke solid;
+    box-shadow: rgb(199, 199, 199) 0px 2px 10px;
+    cursor: pointer;
+  }
+
+  .cell-50{
+    height: 50%;
+  }
+
+  .cell-50 >p{
+    font-size: 0.75em;
+  }
+  .cell-50 >h4{
+    font-size: 1.25em;
+  }
+
+  .cell-75{
+    height: 75%;
+  }
+
+
+  .bg-center{
+    background-position: center;
+  }
+
+  .bg-bottom{
+    background-position: bottom;
+  }
+
+
+  .grow {
+    transition: all .2s ease-in-out;
+    
+    }
+  .grow:hover { transform: scale(1.05); }
+
+  .cell-25{
+    height: 25%;
+  }
+
+  .dropshadow{
+    box-shadow: lightgray 0px 6px 8px;
+  }  
+
+  .title {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+
+  .disImage{
+    width : 100%;
+    height: 150px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:none;
+    border-radius: 1em;
+  }
+  
+  .disImage:hover{
+    border:none;
+    z-index: 999;
+    scale: 1.25;
+    cursor: pointer;
+
+  }
+
+  .title{
+      margin-bottom: 20px;
+  }
+
+.dropshadow{
+  box-shadow: lightgray 0px 6px 8px;
+}
+
+.download-img{
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain
+}
+
+.dl-card-text{
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-overflow: clip; 
+}
+
+.dcontainer{
+  width:100% !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+
+.dcontainer::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 10px;
+}
+.dcontainer::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+  border-radius: 1em;
+}
+.dcontainer::-webkit-scrollbar-thumb {
+  background-color: rgba(211, 211, 211, 0.445);
+  border-radius: 1em;
+}
+
+.card-text::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 10px;
+}
+.card-text::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+  border-radius: 1em;
+}
+.card-text::-webkit-scrollbar-thumb {
+  background-color:  rgba(211, 211, 211, 0.445);
+  border-radius: 1em;
+}
+
+.product-card{
+  margin-top: 10px;
+  height: 200px;
+}
+
+#backgroundSizing{
+  background-size:cover; 
+  background-position: center;
+  background-image:url("../resources/distributorimages/background.jpg");
+  height: 300px;
+}
+
+.bgImage{
+  width:100%;
+}
