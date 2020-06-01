@@ -1,0 +1,175 @@
+
+{% extends "page.twig" %}
+
+{% block content %}
+                           
+    <div class = "jumbotron">
+        <div class="container" id='containerd'>
+            <h1 style="font-size:2em"> Assign products to your categories <span id="image" style="display: none"><img src="resources/loader.svg" alt="loading"/></span> </h1>
+            <hr>
+            <form class="mt-4" action="pages/assignCategory.php" method='post'>
+
+                  <div class="form-group">
+                    <label for="categorySelect">Select your category</label>
+                    <select class="form-control" id="categorySelect" name='categorySelect'>
+                    {% for cat in categories %}
+                        <option value="{{cat.id}}">{{cat.name}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+
+                <label for='productSearchBar'>Select your product(s)</label>
+                <div class = "input-group">
+                    <input type="text" id="productSearchBar" class="form-control" placeholder="Search for a product..." required onfocus="displaySrc(this)" onblur="undisplaySrc(this)" onkeyup="filterFunc(this)">
+                    <button type="button" class="btn btn-default btnDestPlus" onclick="addUserInput()">
+                            <span><b><i class="fa fa-search" aria-hidden="true"></i></b></span>
+                    </button>
+                </div>
+                <ul  class="list-group mt-2" id="searchMenu"  style="display: none"> 
+                {% for prod in products %}
+                    <li class="list-group-item">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="product" id="product{{prod.ID}}" value='{{prod.ID}}' onclick='addSelected("{{prod.Name}}",this)'> {{prod.Name}}
+                        </label>
+                    </div>
+                    </li>
+                    
+                {% endfor %}
+                </ul>
+                <br><p class='font-weight-light' id='selectedProductLabel'>Selected: </p>
+
+                <a name="" id="" class="btn btn-info mt-4" href="#" role="button" onclick='request(testAlert)'>Confirm</a>
+                
+            </form>
+
+            <div id='response'>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/ObjetXHR.js" type="text/javascript"></script>
+
+    <script>
+    
+        function isHover(e) {
+                    return (e.parentElement.querySelector(':hover') === e);
+                }
+        function displaySrc(input){
+                    obj = document.getElementById("searchMenu");
+                    obj.style.display = "block";
+                    selectedtxt = input;
+                }
+                
+                function undisplaySrc(input){
+                    var searchMenu = document.getElementById("searchMenu");
+                    if(!isHover(searchMenu)){
+                        obj = document.getElementById("searchMenu");
+                        obj.style.display = "none";
+                    }
+                    
+                }
+           function filterFunc(myTextField) {
+                  // Declare variables
+                  var input, filter, ul, li, a, i, txtValue;
+                  input = myTextField;
+                  filter = input.value.toUpperCase();
+                  ul = document.getElementById("searchMenu");
+                  li = ul.getElementsByTagName('li');
+                
+                  // Loop through all list items, and hide those who don't match the search query
+                  for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("label")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      li[i].style.display = "";
+                    } else {
+                      li[i].style.display = "none";
+                    }
+                  }
+                }
+            function addSelected(name, checkbox){
+                var selLabel = document.getElementById('selectedProductLabel');
+                if(checkbox.checked == true){
+                    console.log("before length : "+selLabel.innerHTML.length);
+                    selLabel.innerHTML += " "+name+";";
+                }
+                if(checkbox.checked == false){
+                    selLabel.innerHTML = selLabel.innerHTML.replace(name+";",'');
+                }
+            }
+    </script>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    window.onload = function() {
+        var inputs = document.getElementsByName("product");
+                    for( var i= 0; i < inputs.length; i++){
+                        if(inputs[i].type == "checkbox"){
+                            inputs[i].checked = false;
+                        }
+                    }
+    };
+    function request(callback) {
+            if (document.getElementById('categorySelect').checkValidity() ) {
+
+                    var categoryId = document.getElementById('categorySelect').value;
+
+                    var checkedProds = [];
+                    var inputs = document.getElementsByName("product");
+                    for( var i= 0; i < inputs.length; i++){
+                        if(inputs[i].type == "checkbox"){
+                            if(inputs[i].checked){
+                                checkedProds.push(inputs[i].value);
+                            }
+                        }
+                    }
+                    
+                    var xhr = getXMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                            callback(xhr.responseText);
+                            document.getElementById("image").style.display = "none";
+                        } else if (xhr.readyState < 4) {
+                            document.getElementById("image").style.display = "inline";
+                            if(document.getElementById("reponsexhr")){
+                            var div=document.getElementById("reponsexhr");
+                            var parent=document.querySelector('.jumbotron');
+                            parent.removeChild(div);
+                        }
+
+                        }
+                    };
+                        xhr.open("POST", "pages/assignCategory.php", true);
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xhr.send('categoryId=' + categoryId + '&products=' + checkedProds);
+            } else {
+                alert("Please fill the form");
+            }
+        }
+            //Get the response message
+            function testAlert(text) {
+
+                var DivJum = document.getElementById('response');
+                var newDiv = document.createElement('div');
+                newDiv.className = 'card-body';
+                newDiv.id='reponsexhr';
+                var newP = document.createElement('p');
+                newP.className = 'text-center';
+                newDiv.appendChild(newP);
+
+                var newtexte = document.createTextNode(text);
+                newP.appendChild(newtexte);
+                DivJum.innerHTML = '';
+                DivJum.appendChild(newDiv);
+                newDiv.innerHTML = text;
+                //location.reload();
+            }
+
+            
+            </script>
+
+{% endblock script %}

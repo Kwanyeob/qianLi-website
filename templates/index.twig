@@ -1,0 +1,153 @@
+{% extends "page.twig" %}
+
+{% block header %}
+    <!-- Carousel image slider -->
+    <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#mainCarousel" data-slide-to="1"></li>
+              <li data-target="#mainCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="resources/iSocket.jpg">
+                  <div class="container">
+                  <div class="carousel-caption text-left">
+                    <h1>iSocket X/XS</h1>
+                    <p>
+                      High quality tray for iPhone X motherboard.
+                    </p>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                  <img src="resources/iSee.jpg">
+                  <div class="container">
+                  <div class="carousel-caption text-left">
+                    <h1>iSee</h1>
+                    <p>Highlight any dust and scratches when replacing LCD screens.</p>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="resources/iCopy.png">
+                <div class="container">
+                  <div class="carousel-caption text-right">
+                    <h1>iCopy</h1>
+                    <p>Backup, Copy, Search, Store... Become the master of lcd and motherboard datas.</p>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+{% endblock header %}
+
+{% block content %}
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="display-4 font-weight-normal">We are QianLi</h1>
+          <p class="lead font-weight-normal">
+              Leader in phone repairing tools, pioneer in innovation.
+            </p>
+          <p>
+          <a class="btn btn-outline-secondary" href="?page=about">About us</a>
+          <a class="btn btn-outline-secondary" href="?page=distributors">Distributor</a>
+          <a class="btn btn-outline-secondary" href="?page=about&focus=stories">Press</a>
+          </p>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  </div>
+
+  <div class="overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+        <div class="col-md-10 mx-auto my-5 text-center">
+          <h2 class="display-5 font-weight-light">Best-selling products</h2>
+          <hr>
+          <div class="row  dropshadow" style="height: 500px">
+            <div class="col-md-8">
+              <a href="?page=product&name=iSocket" class="text-dark text-decoration-none">
+                <div class="row cell cell-25 bg-center"  style="background-image:url('resources/iSocket1.jpg')">
+                  <h4>iSocket</h4>
+                  <p>Motherboard socket for dual layer testing</p>
+                </div>
+              </a>
+                <div class="row cell-75">
+                  <a href="?page=product&name=iThor" style="background-image:url('resources/iCopyImage.jpg')" class="col-md-8 cell text-dark text-decoration-none">
+                      <h4> iCopy </h4>
+                      <p>Truetone / data restoring</p>
+                  </a>
+                <div class="col-md-4">
+                    <a href="?page=product&name=iThor" class="text-dark text-decoration-none">
+                      <div class = "row cell cell-50 bg-center" style="background-image:url('resources/iThor1.jpg')">
+                        <h4>iThor</h4>
+                        <p>Quality iPhone screwdriver</p>
+                      </div>
+                    </a>
+                    <a href="?page=product&name=iPower" class="text-dark text-decoration-none">
+                      <div class = "row cell cell-50" style="background-image:url('resources/iPower1.jpg')">
+                        <h4>iPower Max</h4>
+                        <p>iPhone power-supply and button replacer</p>
+                      </div>
+                    </a>
+                </div>
+              </div>
+            </div>
+            
+            <a  href="?page=product&name=PCB" class="col-md-4 cell text-dark text-decoration-none" style="background-image:url('resources/pcb1.jpg')">
+              <h4>PCB Thermal Camera</h4>
+              <p>Motherboard shorts troubleshooting equipment</p>
+            </a>
+          </div>
+        </div>
+  </div>
+
+      <h2 class="display-5 font-weight-light text-center"> Latest Products </h2>
+          <hr>
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+          <div class="my-3 py-3">
+            <h2 class="display-5">PCB Thermal Camera</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; overflow:hidden;"><img src = "resources/mnm.jpg" style="width:100%; height:100%;"></div>
+        </div>
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 p-3">
+            <h2 class="display-5">3D Black Stencil</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"><img src = "resources/stencil.png" style="width:100%; height:100%"></div>
+          
+        </div>
+      </div>
+      
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 p-3">
+            <h2 class="display-5">iSocket</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; overflow:hidden;"><img src = "resources/iSocket1.jpg" style="width:100%; height:100%"></div>
+        </div>
+        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 py-3">
+                  <h2 class="display-5">iPower</h2>
+                  <p class="lead">And an even wittier subheading.</p>
+                </div>
+                <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; overflow:hidden;"><img src = "resources/ip.jpg" style="width:100%; height:auto"></div>
+        </div>
+      </div>
+
+{% endblock content %}
+

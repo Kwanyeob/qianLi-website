@@ -1,0 +1,178 @@
+
+{% extends "page.twig" %}
+
+{% block customstyles %}
+    <link rel="stylesheet" href="css/timeline.css">
+{% endblock customstyles %}
+
+
+{% block content %}
+
+
+<div class='masthead'>
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+            </div>
+        </div>
+    </div>
+</div>
+                 
+<div class="jumbotron">
+    <div class="container container-about justify-content-center">
+        <span>
+        <h1 class="display-4" style='font-size:2em; float:left'>
+         About us 
+         </h1>
+         <img style='float : right' src='resources/qianliLogoBlack.png' alt='QianLi' width='150'> 
+         </span>
+        <br><hr><br>
+                
+        <div class="card m-3">
+            <div class="row no-gutters">
+                <div class="col-4">
+                    <img src="//placehold.it/280" class="img-fluid" alt="">
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <h4 class="card-title text-left">The story of ambition</h4>
+                        <p class="card-text">
+                            QianLi ToolPlus Co., Ltd.，a leading repair tools manufacturer & repair service solution provider in China. Our company commit ourselves to optimize work methods of technicians who engaged in mobile phone repair service industry around the world, by providing mobile phone after-sales stores, companies, training schools from more than 80 countries and regions with innovative technology products and solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="row mt-4">
+             <p class='mt-4 col-11 justify-content-center text-center'><img style='float : left' src='resources/qianliLogoBlack.png' alt='QianLi' width="300" >QianLi ToolPlus Co., Ltd.，a leading repair tools manufacturer & repair service solution provider in China. Our company commit ourselves to optimize work methods of technicians who engaged in mobile phone repair service industry around the world, by providing mobile phone after-sales stores, companies, training schools from more than 80 countries and regions with innovative technology products and solutions.</p>
+        </section>
+
+        <section class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <h4>QianLi's History</h4>
+                
+                <ul class="timeline">
+
+                    {% for event in timeline %}
+                    
+                    <li >
+                        <div class="w3-animate-bottom">                                     
+                        <a target="_blank" href="">{{event.title}}</a>
+                        <a href="{{event.link}}" class="float-right">{{event.date}}</a>
+                        <p>
+                        {{event.description}}
+                        </p>
+                        </div>
+                    </li>
+
+                    {% endfor %}
+                    
+                    <li>
+                        <div class="w3-animate-bottom">
+                        <a href="#">Looking forward</a>
+                        <a href="#" class="float-right">Future</a>
+                        <p>QianLi innovation technology will continue to improve and innovate into the development of cell phones
+                         after-sales maintenance tools and solutions.
+                          We will never settle in pursuit of excellency...</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class = "container"> 
+            <hr>
+                <h3 class = "head"> Co-founders </h3>
+                <p class='text-center font-weight-light'>Directors description<p><br>
+
+                    <div class = "row justify-content-center">
+                        <div class = "col-md-3 mx-1">
+                            <div class="card employeeCard">
+                                <img class="card-img-top employeePic" src="resources/employees/jay.png" alt="Jay co-founder photo" >
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="text-centered">Jayden</h4>
+                                            <p class="card-text">
+                                            CEO
+                                            </p>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class = "col-md-3 mx-1">
+                            <div class="card employeeCard">
+                                <img class="card-img-top employeePic" src="resources/employees/zark.jpg" alt="Zark co-founder photo">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Zark</h4>
+                                            <p class="card-text">
+                                            Co-founder</p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3 class = "head"> Team Managers </h3>
+                    <div class = "row justify-content-center">
+                        <div class = "col-md-3">
+                            <div class="card employeeCard">
+                                <img class="card-img-top employeePic" src="resources/employees/wenson.jpg" alt="Wenson's photo">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Wenson</h4>
+                                            <p class="card-text">
+                                            Wenson Li is a very experienced international salesman.
+                                            He worked for two years in the US and is now the leader of international commerce team.</p>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class = "col-md-3">
+                            <div class="card employeeCard">
+                                <img class="card-img-top employeePic" src="resources/employees/rocket.jpg" alt="YaoHui Long photo">
+                                    <div class="card-body">
+                                        <h4 class="card-title">YaoHui Long</h4>
+                                            <p class="card-text">
+                                            YaoHui Long has 12 years of experience in software & hardware developement.
+                                             Expert in Electronic and Software design, YaoHui Long earned three patents.
+                                             He is now part of QianLi to share with us his knowledge.</p>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class = "col-md-3">
+                            <div class="card employeeCard">
+                                <img class="card-img-top employeePic" src="resources/employees/Cai.jpg" alt="Jingcheng Cai photo">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Jingcheng Cai</h4>
+                                            <p class="card-text">
+                                            JingCheng Cai is very familiar with Chinese Domestic marketing strategies,
+                                             he also had plenty of experience in other domestic businesses.
+                                              He leads the domestic marketing team</p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section> 
+</div>
+
+{% endblock content %}
+  
+
+
+
+
+
+
+
+
+
+  
+                                    
+                                
+                            
+                    
+                
+                                    
+                                    
+                                
+                            
+                    
+                
+           
+        
+

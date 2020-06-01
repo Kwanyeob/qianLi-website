@@ -1,0 +1,125 @@
+
+{% extends "page.twig" %}
+
+{% block content %}
+                           
+    <div class = "jumbotron">
+        
+        <div class="container">
+
+        {% if search == true %}
+        <!-- Search form -->
+        <div class="form-inline md-form form-sm float-right">
+            <input class="form-control form-control-sm mr-3 w-75" id='srcInput' type="text" placeholder="Search"
+                aria-label="Search" onblur="hide(this)" onkeyup="filterFunc(this)">
+                <a style='cursor:pointer' onclick="filterFunc(document.getElementById('srcInput'))" ><i class="fa fa-search text-danger" aria-hidden="true"></i></button>
+            
+        </div>
+
+        
+        <h5>Search</h5><hr>
+            <div class="row pb-5" id='searchMenu' style='display: none'>
+            {% for item in all %}
+                <div class="col-md-2 searchCard">
+                    <a href='?page=product&id={{item.ID}}' class="text-decoration-none">
+                        <div class="card">
+                            <img class="card-img-top" src="resources/products/{{item.Image_folder}}/main.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text text-dark">{{item.Name}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% for category in categories %}
+           <h4 class='pt-3'>{{category.name}}</h4><hr>
+            <div class="row">
+            {% for item in category.items %}
+                <div class="col-md-2">
+                    <a href='?page=product&id={{item.product_id}}' class="text-decoration-none">
+                        <div class="card">
+                        <img class="card-img-top" src="resources/products/{{item.picture}}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text text-dark">{{item.name}}</p>
+                        </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% if others %}
+            <h4 class='pt-3'>Others</h4><hr>
+            <div class="row">
+            {% for item in others %}
+                <div class="col-md-2">
+                    <a href='?page=product&id={{item.ID}}' class="text-decoration-none">
+                        <div class="card">
+                        <img class="card-img-top" src="resources/products/{{item.Image_folder}}/main.png" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text text-dark">{{item.Name}}</p>
+                        </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    function isHover(e) {
+                    return (e.parentElement.querySelector(':hover') === e);
+                }
+        function displaySrc(input){
+                    obj = document.getElementById("searchMenu");
+                    obj.style.display = "flex";
+                    selectedtxt = input;
+                }
+
+        function hide(input){
+                    var searchMenu = document.getElementById("searchMenu");
+                    if(!isHover(searchMenu)){
+                        obj = document.getElementById("searchMenu");
+                        obj.style.display = "none";
+                    }
+                    
+                }
+                
+           function filterFunc(myTextField) {
+                  // Declare variables
+
+
+                  var input, filter, ul, li, a, i, txtValue;
+                  input = myTextField;
+                  filter = input.value.toUpperCase();
+                  ul = document.getElementById("searchMenu");
+                  li = ul.getElementsByClassName('searchCard');
+                
+                  // Loop through all list items, and hide those who don't match the search query
+                  for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByClassName("card-text")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      li[i].style.display = "";
+                    } else {
+                      li[i].style.display = "none";
+                    }
+                  }
+                if(myTextField.value == '')
+                    hide(myTextField);
+                else
+                    displaySrc(myTextField);
+            }
+    </script>
+{% endblock %}

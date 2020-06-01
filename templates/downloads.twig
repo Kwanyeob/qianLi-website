@@ -1,0 +1,83 @@
+
+{% extends "page.twig" %}
+
+{% block content %}
+                           
+<div class="jumbotron">
+        <div class="container" style="max-width: 90%">
+            <!-- Put your content here-->
+            <h1 class="text-center font-weight-light">Downloads</h1>
+            <hr>
+            <div class="row p-2 justify-content-center dcontainer">
+                {% for item in downloads %}
+                <div class="col-md-3" style="display: inline-block;
+                float: none;">
+                    <div class="card download-card" >
+                        <img class="card-img-top p-0 download-img" src="{{item.image}}" alt="picture of {{item.name}}">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ item.name }}</h5>
+                              <p class="card-text dl-card-text" style="font-size:12px">
+                                    {{ item.description | nl2br }}
+                                </p>
+                              <p> <a href="{{item.downloadlink}}" class="btn btn-warning btn-block">Download <i class="fa fa-download" aria-hidden="true"></i></a> </p>
+                             <p> <a href="{{item.menulink}}" class="btn btn-outline-secondary btn-block">Manual <i class="fa fa-book" aria-hidden="true"></i></a> </p>
+                            </div>
+                          </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+            <div class="container mt-5">    
+            <h2 class="font-weight-light">Support : Manuals and product downloads</h2>
+            <hr>          
+                <h3>Downloads</h3>
+                    <div class="row">   
+                            <div class="col-sm">
+                                <ul>
+                                {% for item in downloads %}
+                                    <li><a href="{{item.downloadlink}}">{{item.name}}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>     
+                            <div class="col-sm">
+                                <ul>
+                                </ul>
+                            </div>
+                            <div class="col-sm">
+                                <ul>
+                                </ul>
+                            </div>            
+                    </div>
+            </div>    
+            
+            <div class="container">                               
+                <h3>Manuals</h3>
+                <div class="row">                                                             
+                    <div class="col-sm">
+                        <ul>
+                            {% for item in downloads %}
+                                <li><a href="{{item.menulink}}">{{item.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <ul>
+                            </ul>
+                    </div>
+                    <div class="col-sm">
+                        <ul>
+                        </ul>
+                    </div>            
+                </div>
+            </div>    
+
+        </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+    
+{% endblock script %}

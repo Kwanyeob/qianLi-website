@@ -1,0 +1,145 @@
+
+{% extends "page.twig" %}
+
+{% block content %}
+                           
+    <div class = "jumbotron">
+        <div class="container" id='containerd'>
+            <h1 style="font-size:2em"> Product insertion page </h1>
+            <hr>
+            <p>Is it already registered ?</p>
+            <div class = "input-group">
+                                <input type="text" id="inputSearch" class="form-control" placeholder="Search your product..." required onfocus="displaySrc(this)" onblur="undisplaySrc(this)" onkeyup="filterFunc(this)">
+                                <button type="button" class="btn btn-default btnDestPlus" onclick="addUserInput()">
+                                        <span><b><i class="fa fa-search" aria-hidden="true"></i></b></span>
+                                </button>
+                        </div>
+            <ul  class="list-group mt-2" id="searchMenu"  style="display: none"> 
+            {% for prod in products %}
+                <li class="list-group-item"><a href='?page=product&id={{prod.ID}}'>{{prod.Name}}</a></li>
+            {% endfor %}
+            </ul>
+            <hr>
+            <form class="form-group mt-4" action="pages/submitProduct.php" method='post'>
+            <h5>Create a new product</h5><br>
+              <label for="Name">Product name</label>
+              <input type="text" name="Name" id="Name" class="form-control" placeholder="Product name" required>
+
+              <label class="mt-4" for="imgFolder">Image folder name </label>
+              <input type="text" name="imgFolder" id="imgFolder" class="form-control" placeholder="ex : bumblebee, ithor ..." required>
+
+              <label class="mt-4" for="Description">Description</label>
+                <textarea class="form-control" name="Description" id="Description" rows="3" required></textarea>
+
+                <a name="" id="" class="btn btn-info mt-4" href="#" role="button" onclick='request(testAlert)'>Submit <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                
+            </form>
+
+            <div id='response'>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/ObjetXHR.js" type="text/javascript"></script>
+
+    <script>
+    
+        function isHover(e) {
+                    return (e.parentElement.querySelector(':hover') === e);
+                }
+        function displaySrc(input){
+                    obj = document.getElementById("searchMenu");
+                    obj.style.display = "block";
+                    selectedtxt = input;
+                }
+                
+                function undisplaySrc(input){
+                    var searchMenu = document.getElementById("searchMenu");
+                    if(!isHover(searchMenu)){
+                        obj = document.getElementById("searchMenu");
+                        obj.style.display = "none";
+                    }
+                    
+                }
+           function filterFunc(myTextField) {
+                  // Declare variables
+                  var input, filter, ul, li, a, i, txtValue;
+                  input = myTextField;
+                  filter = input.value.toUpperCase();
+                  ul = document.getElementById("searchMenu");
+                  li = ul.getElementsByTagName('li');
+                
+                  // Loop through all list items, and hide those who don't match the search query
+                  for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      li[i].style.display = "";
+                    } else {
+                      li[i].style.display = "none";
+                    }
+                  }
+                }
+    </script>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+ function request(callback) {
+               
+                if (document.getElementById('Name').checkValidity() 
+                && document.getElementById('imgFolder').checkValidity()  
+                && document.getElementById('Description').checkValidity()) {
+
+                var name = document.getElementById("Name").value;
+                var desc = document.getElementById("imgFolder").value;
+                var imgFolder = document.getElementById("Description").value;
+                   
+                var xhr = getXMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                        callback(xhr.responseText);
+                        document.getElementById("image").style.display = "none";
+                    } else if (xhr.readyState < 4) {
+                        document.getElementById("image").style.display = "inline";
+                        if(document.getElementById("reponsexhr")){
+                        var div=document.getElementById("reponsexhr");
+                        var parent=document.querySelector('.jumbotron');
+                        parent.removeChild(div);
+                    }
+
+                    }
+                };
+                    xhr.open("POST", "pages/submitProduct.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send('Name=' + name + '&Description=' + desc + '&imgFolder=' + imgFolder);
+                } else {
+                    alert("Please fill the form");
+                }
+            }
+            
+            //Get the response message
+            function testAlert(text) {
+
+                var DivJum = document.getElementById('response');
+                var newDiv = document.createElement('div');
+                newDiv.className = 'card-body';
+                newDiv.id='reponsexhr';
+                var newP = document.createElement('p');
+                newP.className = 'text-center';
+                newDiv.appendChild(newP);
+
+                var newtexte = document.createTextNode(text);
+                newP.appendChild(newtexte);
+                DivJum.innerHTML = '';
+                DivJum.appendChild(newDiv);
+                alert(text);
+                location.reload();
+            }
+
+            
+            </script>
+
+{% endblock script %}

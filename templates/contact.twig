@@ -1,0 +1,119 @@
+
+{% extends "page.twig" %}
+
+{% block content %}
+                           
+    <div class = "jumbotron" id='jum'>
+    
+        <div class="container">
+            <h1 class="card-title">Contact Us</h1> <hr>
+                <div class="row justify-content-center">
+                    <div class="col-md-2 mx-1 boxi">
+                        <h5 class="card-title">WeChat</h5>
+                            <img src="resources/contact/wechat.png" class ="img-thumbnail mx-auto d-block" id="imageMail" alt= "image">
+                                <div class="footer">
+                                    <button class="btn btn-block" id= "buttonArrow" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        <i class= "fa fa-angle-down" style='font-size: 25px;'  style='text-align:center;' aria-hidden="true"></i>     
+                                    </button>    
+                                     <div class="collapse" id="collapseExample">
+                                       
+                                           
+                                            <img src = "resources/contact/qrcode.png" class ="img-thumbnail mx-auto d-block" id="imagqr" alt= "image">
+                                            </div>
+                                       
+                                                                      
+                                        
+                                </div>
+                                  
+                    </div>
+                       
+                <div class="col-md-2 mx-1 boxi">
+                    <h5 class="card-title">WhatsApp</h5>
+                    <img src="resources/contact/whatsapp.png" class ="img-thumbnail mx-auto d-block" id="imageMail" alt= "image">
+                    <div class="footer">
+                        <button class="btn btn-block" id= "buttonArrow" type="submit" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-angle-down"  style='font-size: 25px;' aria-hidden="true"></i>
+                        </button>  
+
+                        <div class="collapse" id="collapseExample2">
+                                                <div class ="card card-body sizingBody">
+                                                        <p>
+                                                            WhatsApp(Wenson):
+                                                        </p>
+                                                             <p>
+                                                                 +86 185 6560 1289
+                                                            </p>
+                                                        
+                                                </div>
+                                        </div>                                      
+                        
+                    </div>
+                </div>
+
+                
+                <div class="col-md-2 mx-1 boxi">
+                    <h5 class="card-title">Facebook</h5>
+                    <img src="resources/contact/facebook.png" class ="img-thumbnail mx-auto d-block" id="imageMail" alt= "image">
+                    <div class="footer">
+                        <button class="btn btn-block" id= "buttonArrow" type="submit" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-angle-down"  style='font-size: 25px;' aria-hidden="true"></i>
+                        </button>                                        
+                        <div class="collapse" id="collapseExample3">
+                            <div class ="card card-body">
+                                <a href="https://www.facebook.com/people/Qian-Li/100013767042137"><i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                 Go to our Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 mx-1 boxi">
+                    <h5 class="card-title">Instagram</h5>
+                    <img src="resources/contact/insta2.jpg" class ="img-thumbnail mx-auto d-block" id="imageMail" alt= "image">
+                    <div class="footer">
+                       <button class="btn btn-block" id= "buttonArrow" type="submit" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
+                           <i class="fa fa-angle-down"  style='font-size: 25px;' aria-hidden="true"></i>
+                        </button>                                        
+                        <div class="collapse" id="collapseExample4">
+                            <div class ="card card-body">
+                                <a href="https://www.instagram.com/qianli_and_tool_plus/"><i class="fa fa-instagram Insticons" aria-hidden="true"></i></i>
+                                Go to our Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+        </div>
+       
+        
+        
+    </div>
+
+   <h1 class= "card-title">Visit Us</h1> 
+
+    <section id='mapSection'>
+        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAjn4ZgVNw7eXxb9M_5gW1yP3DTCX_Ra2I'></script>
+        <div style='overflow:hidden;height:400px;width:100%;' >
+            <div id='gmap_canvas' style='height:400px;width:100%;'>
+                <style> #gmap_canvas img{max-width:none!important;background:none!important} </style>
+            </div>
+            <script type='text/javascript'>
+                function init_map() {
+                    var myOptions = {zoom: 14, center: new google.maps.LatLng(22.541472,114.0853558,17), mapTypeId: google.maps.MapTypeId.ROADMAP};
+                    map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                    marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(22.541472,114.0853558,17)});
+                    infowindow = new google.maps.InfoWindow({content: '<strong>QianLi</strong><br>#6908，Floor 69，SEG Plaza，Huaqiang North，Futian District，Shenzhen，China<br>'});
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+                    infowindow.open(map, marker);
+                }
+                google.maps.event.addDomListener(window, 'load', init_map);
+             </script>
+         </div>
+    </section>
+
+{% endblock content %}

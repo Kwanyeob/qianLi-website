@@ -1,0 +1,49 @@
+
+{% extends "page.twig" %}
+
+{% block customstyles %}
+    <link rel="stylesheet" href="css/product_page.css">
+{% endblock customstyles %}
+
+{% block content %}
+<a class="btn btn-outline-secondary" id="button-buy" href="{{product.buy_link}}">Where to buy ?</a>
+<div class="row overflow-hidden p-3 p-md-5 m-md-3 text-right bg-light prod-holder">
+        <div class="col-md-6 p-lg-5 my-4">
+          <div class="product-img" ></div>
+        </div>
+          <div class="col-md-5 p-lg-5 my-5">
+          <h1 class="display-4 font-weight-light">{{product.title}}</h1>
+          <p class="lead font-weight-normal">
+              {{product.description}}
+            </p>
+          <a class="btn btn-outline-secondary" href="{{product.video_link}}">Video</a>
+          <a class="btn btn-outline-secondary" href="{{product.buy_link}}">Where to buy ?</a>
+        </div>
+  </div>
+
+  <div class="row overflow-hidden p-0 p-md-5 m-md-3 bg-light">
+          <div class="col p-lg-5 my-5">
+          <h3 class="desc-title font-weight-light">First fact : it is good</h3>
+          <p class="lead font-weight-normal">
+              Like very good.
+            </p>
+        </div>
+  </div>
+  <div class="row overflow-hidden p-0 p-md-5 m-md-3 bg-light text-right">
+        <div class="col p-lg-5 my-5">
+        <h3 class="desc-title font-weight-light">2nd fact : it is reliable</h3>
+        <p class="lead font-weight-normal">
+            Like very reliable !
+          </p>
+      </div>
+</div>
+<div class="row overflow-hidden p-0 p-md-5 m-md-3 bg-light text-center">
+        <div class="col p-lg-5 my-5">
+        <h3 class="desc-title font-weight-light">Latest fact : You already know it</h3>
+        <p class="lead font-weight-normal">
+            Do you ?
+          </p>
+      </div>
+</div>
+
+{% endblock content %}
